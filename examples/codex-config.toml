@@ -1,0 +1,20 @@
+# Example ~/.codex/config.toml snippet for Codex Cursor Bridge.
+# This is a snippet, not a full replacement config file. Merge it into your existing Codex config.
+# Works for Codex CLI and Codex Desktop builds that support custom model providers.
+# Replace model_catalog_json with the exact absolute path you used in `catalog --out`.
+# The bridge ignores Authorization headers; experimental_bearer_token is a local placeholder for Codex clients.
+
+model = "cursor-auto"
+model_provider = "cursorbridge"
+model_catalog_json = "/ABSOLUTE/PATH/YOU/USED/WITH/catalog--out/codex-cursor-model-catalog.json"
+
+[model_providers.cursorbridge]
+name = "Cursor Bridge"
+base_url = "http://127.0.0.1:48124/v1"
+wire_api = "responses"
+requires_openai_auth = false
+experimental_bearer_token = "local"
+supports_websockets = false
+request_max_retries = 1
+stream_max_retries = 0
+stream_idle_timeout_ms = 300000

@@ -1,0 +1,86 @@
+{
+  "name": "@codex-cursor-bridge/cli",
+  "version": "0.1.0",
+  "description": "Local Codex provider for using your own Cursor Agent models inside Codex's native harness.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Akaro96",
+    "url": "https://github.com/Akaro96"
+  },
+  "homepage": "https://github.com/Akaro96/codex-cursor-bridge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akaro96/codex-cursor-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Akaro96/codex-cursor-bridge/issues"
+  },
+  "main": "./src/server.mjs",
+  "exports": {
+    ".": "./src/server.mjs",
+    "./server": "./src/server.mjs",
+    "./model-catalog": "./src/model-catalog.mjs",
+    "./cursor-agent": "./src/cursor-agent.mjs",
+    "./prompt": "./src/prompt.mjs",
+    "./responses": "./src/responses.mjs",
+    "./doctor": "./src/doctor.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "codex-cursor-bridge": "./bin/codex-cursor-bridge.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "scripts": {
+    "start": "node ./bin/codex-cursor-bridge.mjs serve",
+    "catalog": "node ./bin/codex-cursor-bridge.mjs catalog --out ./codex-cursor-model-catalog.json",
+    "doctor": "node ./bin/codex-cursor-bridge.mjs doctor",
+    "lint": "node ./scripts/check-syntax.mjs",
+    "test": "node ./scripts/run-tests.mjs",
+    "test:ci": "node ./scripts/run-ci.mjs",
+    "smoke": "node ./scripts/smoke-test.mjs",
+    "pack:dry-run": "npm pack --dry-run",
+    "release:check": "node ./scripts/release-check.mjs",
+    "prepublishOnly": "npm run test:ci && npm run release:check && npm audit --omit=dev"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "scripts/",
+    "examples/",
+    "docs/",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "SECURITY.md",
+    "DISCLAIMER.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "SUPPORT.md"
+  ],
+  "keywords": [
+    "codex",
+    "cursor",
+    "cursor-agent",
+    "openai-responses",
+    "model-provider",
+    "bridge",
+    "local-first",
+    "cli",
+    "nodejs"
+  ]
+}

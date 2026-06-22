@@ -1,0 +1,63 @@
+<svg width="1160" height="560" viewBox="0 0 1160 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Codex Cursor Bridge architecture</title>
+  <desc id="desc">Codex calls a local bridge, which delegates cursor-prefixed model requests to Cursor Agent without reading credentials.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1160" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#162033"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <style>
+      .label{font:600 24px ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;fill:#F8FAFC}
+      .sub{font:400 15px ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;fill:#AAB6C7}
+      .mono{font:500 14px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#C7D2FE}
+      .tiny{font:500 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#94A3B8}
+    </style>
+  </defs>
+  <rect width="1160" height="560" rx="28" fill="url(#bg)"/>
+  <path d="M0 88H1160" stroke="#1E293B"/>
+  <circle cx="72" cy="44" r="8" fill="#EF4444"/>
+  <circle cx="100" cy="44" r="8" fill="#F59E0B"/>
+  <circle cx="128" cy="44" r="8" fill="#22C55E"/>
+  <text x="170" y="51" class="tiny">codex-cursor-bridge / local provider architecture</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="250" height="180" rx="24" fill="url(#card)" stroke="#334155"/>
+    <text x="100" y="203" class="label">Codex</text>
+    <text x="100" y="233" class="sub">Desktop and CLI clients</text>
+    <rect x="100" y="266" width="155" height="34" rx="17" fill="#1E293B"/>
+    <text x="116" y="288" class="mono">wire_api=responses</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="455" y="130" width="260" height="220" rx="24" fill="url(#card)" stroke="#4F46E5"/>
+    <text x="485" y="183" class="label">Local bridge</text>
+    <text x="485" y="213" class="sub">127.0.0.1 only by default</text>
+    <text x="485" y="252" class="mono">/v1/responses</text>
+    <text x="485" y="282" class="mono">/v1/models</text>
+    <text x="485" y="312" class="mono">catalog.json</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="840" y="150" width="250" height="180" rx="24" fill="url(#card)" stroke="#10B981"/>
+    <text x="870" y="203" class="label">Cursor Agent</text>
+    <text x="870" y="233" class="sub">user's own local install</text>
+    <rect x="870" y="266" width="158" height="34" rx="17" fill="#064E3B"/>
+    <text x="887" y="288" class="mono">cursor-* models</text>
+  </g>
+
+  <path d="M330 240H440" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+  <path d="M430 230L446 240L430 250" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M725 240H830" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+  <path d="M820 230L836 240L820 250" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="260" y="390" width="640" height="74" rx="18" fill="#020617" stroke="#1E293B"/>
+  <text x="292" y="419" class="mono">No token scraping · no hosted proxy · no gpt-* fallback · zero runtime dependencies</text>
+  <text x="292" y="445" class="tiny">The bridge invokes Cursor Agent; it does not read Cursor, OpenAI, browser, or OS credential stores.</text>
+</svg>
